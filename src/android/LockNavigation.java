@@ -30,23 +30,28 @@ public class LockNavigation extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
-      if (action.equals("lockNavigation")) {
+        if (action.equals("lockNavigation")) {
 
-        // Set the needed variables
-        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
-        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
-        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+          cordova.getActivity().runOnUiThread(new Runnable() {
+              public void run() {
+                // Set the needed variables
+                cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+                cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+                cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
-        callbackContext.success();
-        return true;
+                callbackContext.success();
+              }
+          });
 
-      } else {
+          return true;
 
-        return false;
+        } else {
 
-      }
+          return false;
 
-  } 
+        }
+        
+    } 
 
 }
