@@ -23,6 +23,8 @@ import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
 import org.json.JSONArray;
 
+import android.view.WindowManager;
+
 public class LockNavigation extends CordovaPlugin {
 
     @Override
@@ -31,10 +33,10 @@ public class LockNavigation extends CordovaPlugin {
       if (action.equals("lockNavigation")) {
 
         // Set the needed variables
-        this.cordova.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
-        this.cordova.getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
-        this.cordova.getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        this.cordova.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
+        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_DISMISS_KEYGUARD);
+        cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
         callbackContext.success();
         return true;
