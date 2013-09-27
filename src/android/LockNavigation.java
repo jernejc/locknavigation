@@ -40,7 +40,6 @@ public class LockNavigation extends CordovaPlugin {
                 cordova.getActivity().getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
                 cordova.getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FORCE_NOT_FULLSCREEN);
 
-                final callbackContext.success();
               }
           });
 
