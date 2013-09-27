@@ -23,7 +23,8 @@ var exec = require('cordova/exec');
 
 var locknavigation = {
     lock:function() {
-        exec(null, null, "LockNavigation", "lockNavigation", []);
+        exec(null, null, "locknavigation", "lock", []);
+        console.log("Lock!");
     }
 };
 

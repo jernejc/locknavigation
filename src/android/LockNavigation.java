@@ -30,7 +30,7 @@ public class LockNavigation extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
-        if (action.equals("lockNavigation")) {
+        if (action.equals("lock")) {
 
           cordova.getActivity().runOnUiThread(new Runnable() {
               public void run() {
