@@ -26,7 +26,7 @@ import org.json.JSONArray;
 public class LockNavigation extends CordovaPlugin {
 
     @Override
-    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
+    public boolean execute(String action, JSONArray args, CallbackContext callbackContext) {
 
       if (action.equals("lockNavigation")) {
 
